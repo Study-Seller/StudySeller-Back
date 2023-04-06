@@ -1,0 +1,20 @@
+.my-input {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  border: 1px solid gray;
+  color: white;
+   height: 36px;
+}
+
+.my-button {
+  background-color: transparent !important;
+  color: #767676 !important;
+  border: 1px solid gray !important;
+  font-weight: bold !important;
+}
+
+.my-button:focus {
+  background-color: transparent !important;
+  border-color: #8c8c8c !important;
+  color: #8c8c8c !important;
+}
