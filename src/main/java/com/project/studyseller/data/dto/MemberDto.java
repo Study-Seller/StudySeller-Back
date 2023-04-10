@@ -2,14 +2,12 @@ package com.project.studyseller.data.dto;
 
 public class MemberDto {
 
-    private Long userSn;
     private String userId;
     private String userPw;
     private String userName;
     private String userIntroduce;
 
-    public MemberDto(Long userSn, String userId, String userPw, String userName, String userIntroduce) {
-        this.userSn = userSn;
+    public MemberDto(String userId, String userPw, String userName, String userIntroduce) {
         this.userId = userId;
         this.userPw = userPw;
         this.userName = userName;
@@ -31,9 +29,6 @@ public class MemberDto {
     public String getUserIntroduce() {
         return userIntroduce;
     }
-    public Long getUserSn() {
-        return userSn;
-    }
 
     public void setUserId(String userId) {
         this.userId = userId;
@@ -51,7 +46,4 @@ public class MemberDto {
         this.userIntroduce = userIntroduce;
     }
 
-    public void setUserSn(Long userSn) {
-        this.userSn = userSn;
-    }
 }

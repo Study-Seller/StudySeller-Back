@@ -35,7 +35,6 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public MemberResonseDto saveMember(MemberDto memberDto) {
         Member member = new Member();
-        member.setUserSn(memberDto.getUserSn());
         member.setUserId(memberDto.getUserId());
         member.setUserPw(memberDto.getUserPw());
         member.setUserName(memberDto.getUserName());
