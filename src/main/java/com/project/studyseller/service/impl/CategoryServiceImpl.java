@@ -31,7 +31,6 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryResponseDto saveCategory(CategoryDto categoryDto) {
         Category category = new Category();
 
-        category.setCatSn(categoryDto.getCatSn());
         category.setCatName(categoryDto.getCatName());
 
         Category savedCategory = categoryDAO.insertCategory(category);
