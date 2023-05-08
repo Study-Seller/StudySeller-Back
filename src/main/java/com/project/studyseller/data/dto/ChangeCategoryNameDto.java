@@ -1,5 +1,14 @@
 package com.project.studyseller.data.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@AllArgsConstructor //모든 생성자 만들어줌.
+@ToString
 public class ChangeCategoryNameDto {
 
     private Long catSn;
@@ -8,26 +17,5 @@ public class ChangeCategoryNameDto {
 
     public ChangeCategoryNameDto() {
 
-    }
-
-    public ChangeCategoryNameDto(Long catSn, String catName) {
-        this.catSn = catSn;
-        this.catName = catName;
-    }
-
-    public Long getCatSn() {
-        return catSn;
-    }
-
-    public String getCatName() {
-        return catName;
-    }
-
-    public void setCatSn(Long catSn) {
-        this.catSn = catSn;
-    }
-
-    public void setCatName(String catName) {
-        this.catName = catName;
     }
 }

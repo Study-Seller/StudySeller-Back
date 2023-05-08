@@ -33,4 +33,14 @@ public class Member {
     @Column()
     private String userIntroduce;
 
+    @Column()
+    private String twitterId;
+    @Column()
+    private String youtubeId;
+    @Column()
+    private String notionId;
+    @Column()
+    private String snsId;
+
+
 }

@@ -1,5 +1,14 @@
 package com.project.studyseller.data.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@AllArgsConstructor //모든 생성자 만들어줌.
+@ToString
 public class ChangeMemberNameDto {
 
     private Long userSn;
@@ -10,24 +19,4 @@ public class ChangeMemberNameDto {
 
     }
 
-    public ChangeMemberNameDto(Long userSn, String userName) {
-        this.userSn = userSn;
-        this.userName = userName;
-    }
-
-    public Long getUserSn() {
-        return userSn;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserSn(Long userSn) {
-        this.userSn = userSn;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 }

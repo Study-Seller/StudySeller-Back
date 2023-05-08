@@ -1,32 +1,22 @@
 package com.project.studyseller.data.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@AllArgsConstructor //모든 생성자 만들어줌.
+@ToString
 public class ChangeDocTitleDto {
 
     private Long DocSN;
     private String DocTitle;
 
-    public ChangeDocTitleDto(Long DocSN, String DocTitle) {
-        this.DocSN = DocSN;
-        this.DocTitle = DocTitle;
-    }
 
     public ChangeDocTitleDto() {
     }
 
-    public Long getDocSN() {
-        return this.DocSN;
-    }
-
-    public void setDocSN(Long docSN) {
-        this.DocSN = docSN;
-    }
-
-    public String getDocTitle() {
-       return this.DocTitle;
-    }
-
-    public void setDocTitle(String docTitle) {
-        this.DocTitle = docTitle;
-    }
 
 }
