@@ -16,7 +16,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class Pay {
     @Id
-    private Long paySn;         //결제코드(TID : 결제 한 건에 대한 고유번호)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long paySn;
 
     @ManyToOne
     @JoinColumn(name = "paySellerSn")

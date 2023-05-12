@@ -7,6 +7,7 @@ import com.project.studyseller.dto.KakaoResDto;
 import com.project.studyseller.dto.PayDto;
 import com.project.studyseller.dto.PayResponseDto;
 import com.project.studyseller.entity.Pay;
+import com.project.studyseller.repository.PayRepository;
 import com.project.studyseller.service.PayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,10 +27,13 @@ import java.util.Map;
 @RequestMapping("/pay")
 public class PayController {
 
+    @Autowired
+    PayRepository payRepository;
+
     @RequestMapping("/kakaopay.cls")
     @ResponseBody
     public String kakaopay(@RequestBody PayDto payDto) {
-        Pay price = payDto.toEntity();
+
         try {
             URL url = new URL("https://kapi.kakao.com/v1/payment/ready");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();   //클라이언트가 전봇대1이고 카카오페이서버가 전봇대2면 이건 그 두개를 연결 시켜주는 전깃줄.(서버 연결)
@@ -38,15 +42,16 @@ public class PayController {
             httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
             httpURLConnection.setDoOutput(true);    //서버에게 전해줄 것의 유무, input은 기본값이 true라 안해줘도됨.
 
+            Pay pay = payDto.toEntity();
             String payMoney = String.valueOf(payDto.getPayMoney());
             String payDoc = String.valueOf(payDto.getPayDoc());
 
             String parameter = "cid=TC0ONETIME&" +                      //가맹점 코드(10자)
                     "partner_order_id=partner_order_id&" +              //가맹점 주문번호
                     "partner_user_id=partner_user_id&" +                //가맹점 회원id
-                    "item_name="+payDoc+"&" +                          //상품명
+                    "item_name="+payDoc+"&" +                           //상품명
                     "quantity=1&" +                                     //상품 수량
-                    "total_amount="+payMoney+"&" +                          //상품 총액
+                    "total_amount="+payMoney+"&" +                      //상품 총액
                     "tax_free_amount=450&" +                            //상품 비과세 금액
                     "approval_url=http://localhost:8085/pay/success&" + //결제 성공 시 redirect url
                     "cancel_url=http://localhost:8085/pay/fail&" +      //결제 취소 시 redirect url
@@ -68,7 +73,7 @@ public class PayController {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);   //읽는애
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);      //형변환하는애
 
-            //tid, pcurl 가져오기
+            //카카오페이 Response : tid, pcurl 가져오기
             String json = bufferedReader.readLine();
 
             ObjectMapper objectMapper = new ObjectMapper();
@@ -81,7 +86,10 @@ public class PayController {
             kakaoResDto.setTid(tid);
             kakaoResDto.setNext_redirect_pc_url(pcurl);
 
-            return tid +",\n" +pcurl + ",\n"+payMoney + ",\n"+ payDoc;
+            //DB 저장
+            Pay saved = payRepository.save(pay);
+
+            return pcurl;
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
