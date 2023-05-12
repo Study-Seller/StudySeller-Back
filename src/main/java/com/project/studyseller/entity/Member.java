@@ -1,6 +1,6 @@
 // 데이터베이스의 테이블과 구조 생성
 
-package com.project.studyseller.data.entity;
+package com.project.studyseller.entity;
 
 
 import jakarta.persistence.*;
@@ -29,9 +29,6 @@ public class Member {
 
     @Column(nullable = false)
     private String userName;
-
-    @Column()
-    private String userIntroduce;
 
     @Column()
     private String twitterId;

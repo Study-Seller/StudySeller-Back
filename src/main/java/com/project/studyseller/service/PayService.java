@@ -1,7 +1,7 @@
 package com.project.studyseller.service;
 
-import com.project.studyseller.data.dto.PayDto;
-import com.project.studyseller.data.dto.PayResponseDto;
+import com.project.studyseller.dto.PayDto;
+import com.project.studyseller.dto.PayResponseDto;
 
 import java.util.Date;
 

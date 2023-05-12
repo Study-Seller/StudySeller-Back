@@ -1,19 +1,21 @@
-package com.project.studyseller.data.dto;
+package com.project.studyseller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor //모든 생성자 만들어줌.
 @ToString
-public class ChangeDocFileLinkDto {
+public class ChangePayDateDto {
 
-    private Long fileSn;
-    private String fileLink;
+    private Long paySn;
+    private Date payDate;
 
-    public ChangeDocFileLinkDto(){}
+    public ChangePayDateDto(){
+    }
 
 }

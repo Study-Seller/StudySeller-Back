@@ -1,4 +1,4 @@
-package com.project.studyseller.data.dto;
+package com.project.studyseller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,14 +9,14 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor //모든 생성자 만들어줌.
 @ToString
-public class ChangeDocTitleDto {
+public class ChangeMemberNameDto {
 
-    private Long DocSN;
-    private String DocTitle;
+    private Long userSn;
+    private String userName;
 
 
-    public ChangeDocTitleDto() {
+    public ChangeMemberNameDto() {
+
     }
-
 
 }

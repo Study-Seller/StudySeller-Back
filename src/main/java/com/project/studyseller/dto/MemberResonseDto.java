@@ -1,4 +1,4 @@
-package com.project.studyseller.data.dto;
+package com.project.studyseller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

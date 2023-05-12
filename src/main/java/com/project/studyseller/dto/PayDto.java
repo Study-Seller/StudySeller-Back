@@ -1,7 +1,7 @@
-package com.project.studyseller.data.dto;
+package com.project.studyseller.dto;
 
-import com.project.studyseller.data.entity.Document;
-import com.project.studyseller.data.entity.Member;
+import com.project.studyseller.entity.Member;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +16,6 @@ import java.util.Date;
 public class PayDto {
     private Member sellerSn;
     private Member buyerSn;
-    private Document docSn;
-    private Date payDate;
-
+    private Date payMoney;      //결제금액
+    private String payDoc;    //결제한 페이지 정보
 }
