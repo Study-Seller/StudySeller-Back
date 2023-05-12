@@ -21,6 +21,6 @@ public class PayDto {
     private String payDoc;    //결제한 페이지 정보
 
     public Pay toEntity() {
-        return new Pay(null, null, null, payMoney, payDoc);
+        return new Pay(null, sellerSn, buyerSn, payMoney, payDoc);
     }
 }
