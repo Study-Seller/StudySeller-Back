@@ -27,7 +27,7 @@ public class Pay {
     private Member buyerSn;     //구매자
 
     @Column(nullable = false)
-    private Date payMoney;      //결제금액
+    private int payMoney;      //결제금액
 
     @Column(nullable = false)
     private String payDoc;    //결제한 페이지 정보
