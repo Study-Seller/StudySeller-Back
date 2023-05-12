@@ -1,4 +1,4 @@
-package com.project.studyseller.data.dto;
+package com.project.studyseller.dto;
 
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
