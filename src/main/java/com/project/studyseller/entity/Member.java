@@ -27,7 +27,7 @@ public class Member {
     @Column(nullable = false)
     private String userPw;
 
-    @Column(nullable = false)
+    @Column()
     private String userName;
 
     @Column()
