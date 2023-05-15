@@ -1,6 +1,8 @@
 package com.project.studyseller.dto;
 
+import com.project.studyseller.entity.Member;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,4 +22,8 @@ public class MemberDto {
     private String youtubeId;
     private String notionId;
     private String snsId;
+
+    public Member toEntity(){
+        return new Member(null, userId, userPw, null, null, null, null, null);
+    }
 }
