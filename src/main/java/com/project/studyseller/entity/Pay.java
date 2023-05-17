@@ -20,10 +20,6 @@ public class Pay {
     private Long paySn;
 
     @ManyToOne
-    @JoinColumn(name = "paySellerSn")
-    private Member sellerSn;    //판매자
-
-    @ManyToOne
     @JoinColumn(name = "payBuyerSn")
     private Member buyerSn;     //구매자
 

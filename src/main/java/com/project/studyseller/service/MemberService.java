@@ -28,6 +28,9 @@ public class MemberService {
                 return "pw를 확인해주세요.";
             }
         }
-
+    }
+    public String memberJoin(Member member){
+        Member join = memberRepository.save(member);
+        return "디비 저장 성공";
     }
 }

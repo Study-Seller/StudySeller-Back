@@ -17,10 +17,19 @@ public class MemberController {
     @Autowired
     MemberService memberService;
 
+    //로그인 시 성공 여부 확인
     @PostMapping("/login")
-    public String login(@RequestBody MemberDto memberDto){
+    public String join(@RequestBody MemberDto memberDto){
         String memberCheck = memberService.memberCheck(memberDto);
         return memberCheck;
+    }
+
+    //회원가입 시 디비 저장
+    @PostMapping("/join")
+    public String login(@RequestBody MemberDto memberDto){
+        Member member = memberDto.toEntity();
+        String memberJoin = memberService.memberJoin(member);
+        return memberJoin;
     }
 
 }
