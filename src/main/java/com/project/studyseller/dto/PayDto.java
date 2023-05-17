@@ -15,12 +15,11 @@ import java.util.Date;
 @AllArgsConstructor //모든 생성자 만들어줌.
 @ToString
 public class PayDto {
-    private Member sellerSn;
-    private Member buyerSn;
+    private Member sellerSn;    //구매자
     private int payMoney;      //결제금액
     private String payDoc;    //결제한 페이지 정보
 
     public Pay toEntity() {
-        return new Pay(null, sellerSn, buyerSn, payMoney, payDoc);
+        return new Pay(null, null, payMoney, payDoc);
     }
 }

@@ -14,17 +14,20 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor //모든 생성자 만들어줌.
 @ToString
+//프론트로부터 다음과 같은 데이터를 받아서 controller로 전달하는 객체
 public class PayResponseDto {
+    private String  cid;
+    private String  partner_order_id;
+    private String  partner_user_id;
+    private String  item_name;
+    private int quantity;
+    private int total_amount;
+    private int tax_free_amount;
+    private String approval_url;
+    private String cancel_url;
+    private String fail_url;
 
-    private Long paySn;
-    private Member sellerSn;    //판매자
 
-    private Member buyerSn;     //구매자
 
-    private Date payMoney;      //결제금액
-
-    private String payDoc;    //결제한 페이지 정보
-
-    public PayResponseDto() {}
 
 }

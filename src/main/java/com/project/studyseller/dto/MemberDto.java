@@ -24,6 +24,6 @@ public class MemberDto {
     private String snsId;
 
     public Member toEntity(){
-        return new Member(null, userId, userPw, null, null, null, null, null);
+        return new Member(null, userId, userPw, userName, null, null, null, null);
     }
 }
