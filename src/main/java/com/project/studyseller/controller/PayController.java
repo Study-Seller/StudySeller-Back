@@ -25,8 +25,8 @@ public class PayController {
         return kakaopay;
     }
 
-    @GetMapping("/success")
-    public String success(PayDto payDto){
+    @GetMapping("/success/{pg_token}")
+    public String success(@RequestBody PayDto payDto){
 //        Pay pay = payDto.toEntity();
 //        payService.savePay(pay);
         return "성공";

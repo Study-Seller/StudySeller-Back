@@ -6,6 +6,9 @@ import com.project.studyseller.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class MemberService {
     @Autowired
@@ -33,4 +36,19 @@ public class MemberService {
         Member join = memberRepository.save(member);
         return "디비 저장 성공";
     }
+
+    public List<String> notionInfo() {
+        List<Member> memberInfo = memberRepository.findAll();
+        List<String> notionIds = new ArrayList<>();
+
+        for(Member member : memberInfo){
+            String notionId = member.getNotionId();
+            if(notionId != null){
+                notionIds.add(notionId);
+            }
+        }
+
+        return notionIds;
+    }
+
 }
