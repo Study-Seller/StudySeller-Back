@@ -18,14 +18,13 @@ public class PayController {
     @Autowired
     PayRepository payRepository;
 
-    @RequestMapping("/kakaopay.cls")
-    @ResponseBody
+    @PostMapping("/kakaopay")
     public String kakaopay(@RequestBody PayResponseDto payResponseDto) {
         String kakaopay = payService.kakaopay(payResponseDto);
         return kakaopay;
     }
 
-    @GetMapping("/success/{pg_token}")
+    @GetMapping("/success")
     public String success(@RequestBody PayDto payDto){
 //        Pay pay = payDto.toEntity();
 //        payService.savePay(pay);
