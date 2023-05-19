@@ -7,7 +7,6 @@ import com.project.studyseller.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "*") //cors정책 -> 이게 없으면 통신이 안됨.
