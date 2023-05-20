@@ -14,6 +14,8 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PayService {
@@ -24,7 +26,7 @@ public class PayService {
         Pay save = payRepository.save(pay);
     }
 
-    public String kakaopay(PayResponseDto payResponseDto) {
+    public List<String> kakaopay(PayResponseDto payResponseDto) {
         try {
             URL url = new URL("https://kapi.kakao.com/v1/payment/ready");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();   //클라이언트가 전봇대1이고 카카오페이서버가 전봇대2면 이건 그 두개를 연결 시켜주는 전깃줄.(서버 연결)
@@ -84,7 +86,11 @@ public class PayService {
             kakaoResDto.setTid(tid);
             kakaoResDto.setNext_redirect_pc_url(pcurl);
 
-            return tid + " , " + pcurl;
+            List<String> info = new ArrayList<>();
+            info.add(tid);
+            info.add(pcurl);
+
+            return info;
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {

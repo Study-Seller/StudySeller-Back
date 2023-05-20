@@ -8,6 +8,8 @@ import com.project.studyseller.service.PayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/pay")
 public class PayController {
@@ -19,8 +21,8 @@ public class PayController {
     PayRepository payRepository;
 
     @PostMapping("/kakaopay")
-    public String kakaopay(@RequestBody PayResponseDto payResponseDto) {
-        String kakaopay = payService.kakaopay(payResponseDto);
+    public List<String> kakaopay(@RequestBody PayResponseDto payResponseDto) {
+        List<String> kakaopay = payService.kakaopay(payResponseDto);
         return kakaopay;
     }
 
